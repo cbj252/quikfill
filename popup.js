@@ -34,15 +34,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Adds a new mapping input row
 function addMappingInput(id = '', text = '') {
-  const mappingDiv = document.createElement("div");
-  mappingDiv.className = "mapping";
-  mappingDiv.innerHTML = `
-    <input type="text" class="field-id" placeholder="Field ID" value="${id}">
-    <input type="text" class="field-text" placeholder="Text to Fill" value="${text}">
-    <button class="removeMapping">Remove</button>
+  const mappingRow = document.createElement("tr");
+  mappingRow.className = "mapping";
+  mappingRow.innerHTML = `
+    <td> <input type="text" class="field-id" placeholder="Field ID" value="${id}"> </td>
+    <td> <input type="text" class="field-text" placeholder="Text to Fill" value="${text}"> </td>
+    <td> <button class="removeMapping">Remove</button> </td>
   `;
-  mappingDiv.querySelector(".removeMapping").addEventListener("click", () => {
-    mappingDiv.remove();
+  mappingRow.querySelector(".removeMapping").addEventListener("click", () => {
+    mappingRow.remove();
   });
-  document.getElementById("mappings").appendChild(mappingDiv);
+  document.getElementById("mappings").appendChild(mappingRow);
 }
