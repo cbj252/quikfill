@@ -12,15 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   document.getElementById("saveMappings").addEventListener("click", () => {
-    const mappings = Array.from(mappingsDiv.querySelectorAll(".mapping")).map(mapping => {
-      return {
-        id: mapping.querySelector(".field-id").value,
-        text: mapping.querySelector(".field-text").value
-      };
-    });
-    chrome.storage.sync.set({ fieldMappings: mappings }, () => {
-      alert("Mappings saved!");
-    });
+    saveMappings();
   });
 
   document.getElementById("fillFields").addEventListener("click", async () => {
@@ -32,7 +24,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 });
 
-// Adds a new mapping input row
 function addMappingInput(id = '', text = '') {
   const mappingRow = document.createElement("tr");
   mappingRow.className = "mapping";
@@ -43,6 +34,20 @@ function addMappingInput(id = '', text = '') {
   `;
   mappingRow.querySelector(".removeMapping").addEventListener("click", () => {
     mappingRow.remove();
+    saveMappings();
   });
   document.getElementById("mappings").appendChild(mappingRow);
+}
+
+function saveMappings() {
+  const mappingsDiv = document.getElementById('mappings');
+  const mappings = Array.from(mappingsDiv.querySelectorAll(".mapping")).map(mapping => {
+    return {
+      id: mapping.querySelector(".field-id").value,
+      text: mapping.querySelector(".field-text").value
+    };
+  });
+  chrome.storage.sync.set({ fieldMappings: mappings }, () => {
+    alert("Mappings saved!");
+  });
 }
