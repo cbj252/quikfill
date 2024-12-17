@@ -10,24 +10,33 @@
       .mapping {
         margin-bottom: 5px;
       }
+      .flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      #noMappingsMessage { display: none; color: gray; }
     </style>
   </head>
   <body>
-    <h2>Input Mappings</h2>
-    <table class="table">
+    <div class="flex">
+      <h2>Input Mappings</h2>
+      <button id="help">Help</button>
+    </div>
+    <p id="noMappingsMessage">No mappings found.</p>
+    <table class="table" style="display: none;">
       <thead>
         <tr>
           <th scope="col"></th>
           <th scope="col"></th>
-          <th scope="col">Name</th>
-          <th scope="col">Response</th>
+          <th scope="col">Key</th>
+          <th scope="col">Value</th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody id="mappings"></tbody>
     </table>
     <button id="addMapping">Add Mapping</button>
-    <button id="saveMappings">Save Mappings</button>
     <button id="fillFields">Fill Fields</button>
     <script src="popup.js"></script>
   </body>
