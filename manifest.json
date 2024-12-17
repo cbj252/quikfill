@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Multi-Field Filler",
+  "name": "QuikFill",
   "version": "1.1",
   "description": "Fills specified input fields on the current page with custom text.",
   "permissions": ["activeTab", "scripting", "storage"],

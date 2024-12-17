@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       active: true,
       currentWindow: true,
     });
+    if (tab.url?.startsWith("chrome://")) {
+      return;
+    }
     chrome.scripting.executeScript({
       target: { tabId: tab.id },
       files: ["contentScript.js"],
@@ -36,8 +39,8 @@ function addMappingInput(id = "", text = "") {
   mappingRow.innerHTML = `
     <td> <button class="moveUp">&uarr;</button> </td>
     <td> <button class="moveDown">&darr;</button> </td>
-    <td> <input type="text" class="field-id" placeholder="Field ID" value="${id}"> </td>
-    <td> <input type="text" class="field-text" placeholder="Text to Fill" value="${text}"> </td>
+    <td> <input type="text" class="field-id" placeholder="Key to search for in form" value="${id}"> </td>
+    <td> <input type="text" class="field-text" placeholder="Text to fill" value="${text}"> </td>
     <td> <button class="removeMapping">Remove</button> </td>
   `;
 
