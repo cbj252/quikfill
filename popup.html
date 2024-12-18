@@ -15,16 +15,21 @@
         justify-content: space-between;
         align-items: baseline;
       }
-      #noMappingsMessage { display: none; color: gray; }
+      #noMappingsMessage {
+        display: none;
+        color: gray;
+      }
     </style>
   </head>
   <body>
     <div class="flex">
       <h2>Input Mappings</h2>
-      <a href="" target="_blank" rel="noopener noreferrer"><button id="help">Help</button></a>
+      <a href="" target="_blank" rel="noopener noreferrer">
+        <button id="help">Help</button>
+      </a>
     </div>
     <p id="noMappingsMessage">No mappings found.</p>
-    <table class="table" style="display: none;">
+    <table class="table" style="display: none">
       <thead>
         <tr>
           <th scope="col"></th>

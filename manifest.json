@@ -1,10 +1,14 @@
 {
   "manifest_version": 3,
   "name": "QuikFill",
-  "version": "1.1",
-  "description": "Fills specified input fields on the current page with custom text.",
+  "version": "0.9",
+  "description": "Fills specified input fields on the current page with pre-written text.",
   "permissions": ["activeTab", "scripting", "storage"],
   "action": {
     "default_popup": "popup.html"
+  },
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
   }
 }
