@@ -29,10 +29,6 @@ window.addEventListener("visibilitychange", () => {
   saveMappings();
 });
 
-document.getElementById("help").addEventListener("click", () => {
-  chrome.tabs.create({ url: "help.html" });
-});
-
 function addMappingInput(id = "", text = "") {
   const mappingRow = document.createElement("tr");
   mappingRow.className = "mapping";
